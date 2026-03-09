@@ -23,25 +23,25 @@
    ───────────────────────────────────────────────────────────── */
 :root {
   /* Colores principales */
-  --clr-bg:         #ffffff;
-  --clr-bg-alt:     #f5f6fb;
+  --clr-bg:         #fafbff;
+  --clr-bg-alt:     #f2f4fa;
   --clr-surface:    #ffffff;
-  --clr-border:     #e3e7f0;
+  --clr-border:     #dde3f0;
 
-  /* Acento principal (azul marino profundo) */
-  --clr-primary:    #0b1d35;
-  --clr-primary-h:  #152f52;
-  --clr-primary-lt: #edf2f9;
+  /* Primario — azul marino muy oscuro */
+  --clr-primary:    #090e1a;
+  --clr-primary-h:  #0f1a30;
+  --clr-primary-lt: #e8edf8;
 
-  /* Acento secundario (índigo profundo) */
-  --clr-accent:     #5b4ff5;
-  --clr-accent-h:   #4841d4;
-  --clr-accent-lt:  #eeecfe;
+  /* Acento — índigo vibrante */
+  --clr-accent:     #4f46e5;
+  --clr-accent-h:   #3d35cc;
+  --clr-accent-lt:  #eeedfb;
 
   /* Texto */
-  --clr-text:       #0b1d35;
-  --clr-text-muted: #536080;
-  --clr-text-light: #8c9db8;
+  --clr-text:       #0d1424;
+  --clr-text-muted: #4a5778;
+  --clr-text-light: #8896b3;
 
   /* Badges de instituciones */
   --clr-utec:       #0f4c81;
@@ -66,14 +66,14 @@
   --radius-lg: 22px;
   --radius-full: 999px;
 
-  /* Sombras — con tinte de color para mayor profundidad */
-  --shadow-sm:     0 1px 4px rgba(11,29,53,.06), 0 1px 2px rgba(11,29,53,.04);
-  --shadow-md:     0 4px 20px rgba(11,29,53,.10);
-  --shadow-lg:     0 12px 40px rgba(11,29,53,.14);
-  --shadow-accent: 0 8px 28px rgba(91,79,245,.28);
+  /* Sombras */
+  --shadow-sm:     0 1px 4px rgba(9,14,26,.06), 0 1px 2px rgba(9,14,26,.04);
+  --shadow-md:     0 6px 24px rgba(9,14,26,.11);
+  --shadow-lg:     0 16px 48px rgba(9,14,26,.16);
+  --shadow-accent: 0 8px 28px rgba(79,70,229,.30);
 
-  /* Transición suave */
-  --transition: 0.24s cubic-bezier(.4,0,.2,1);
+  /* Transición */
+  --transition: 0.22s cubic-bezier(.4,0,.2,1);
 
   /* Navbar */
   --navbar-h: 68px;
@@ -284,15 +284,15 @@ h1, h2, h3, h4 {
   right: 0;
   z-index: 100;
   height: var(--navbar-h);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--clr-border);
+  background: rgba(9, 14, 26, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   transition: box-shadow var(--transition);
 }
 
 .navbar.scrolled {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 24px rgba(0,0,0,.35);
 }
 
 .navbar__inner {
@@ -303,18 +303,15 @@ h1, h2, h3, h4 {
 }
 
 .navbar__brand {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: var(--clr-primary);
-  letter-spacing: 0.06em;
+  color: #ffffff;
+  letter-spacing: 0.1em;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
-  transition: color var(--transition), background var(--transition);
+  transition: color var(--transition);
 }
-.navbar__brand:hover {
-  color: var(--clr-accent);
-  background: var(--clr-accent-lt);
-}
+.navbar__brand:hover { color: var(--clr-accent); }
 
 .navbar__nav {
   display: flex;
@@ -323,17 +320,18 @@ h1, h2, h3, h4 {
 }
 
 .nav-link {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: var(--clr-text-muted);
+  color: rgba(255,255,255,.60);
   padding: 0.25rem 0.1rem;
   border-bottom: 2px solid transparent;
+  letter-spacing: 0.02em;
   transition: color var(--transition), border-color var(--transition);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--clr-primary);
+  color: #ffffff;
   border-bottom-color: var(--clr-accent);
 }
 
@@ -354,7 +352,7 @@ h1, h2, h3, h4 {
   display: block;
   height: 2px;
   width: 100%;
-  background: var(--clr-primary);
+  background: #ffffff;
   border-radius: var(--radius-full);
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -368,7 +366,10 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   padding-top: var(--navbar-h);
-  background: radial-gradient(ellipse 80% 65% at 68% 30%, #eceaff 0%, #eef2ff 30%, #f5f6fb 60%, #ffffff 100%);
+  background:
+    radial-gradient(ellipse 55% 70% at 78% 40%, rgba(79,70,229,.10) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(79,70,229,.06) 0%, transparent 60%),
+    #fafbff;
   border-bottom: 1px solid var(--clr-border);
 }
 
@@ -442,11 +443,12 @@ h1, h2, h3, h4 {
 
 /* Subtítulo */
 .hero__title {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   color: var(--clr-accent);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   margin-bottom: var(--space-md);
+  text-transform: uppercase;
 }
 
 /* Descripción */
@@ -480,6 +482,7 @@ h1, h2, h3, h4 {
    ───────────────────────────────────────────────────────────── */
 .about {
   background: var(--clr-bg-alt);
+  border-top: none;
 }
 
 .about__grid {
@@ -640,7 +643,7 @@ h1, h2, h3, h4 {
   border-top: 1px solid var(--clr-border);
   display: flex;
   gap: var(--space-sm);
-  background: var(--clr-bg-alt);
+  background: #f8f9fd;
 }
 
 
@@ -878,12 +881,13 @@ h1, h2, h3, h4 {
    12. FOOTER
    ───────────────────────────────────────────────────────────── */
 .footer {
-  background: var(--clr-primary);
-  color: rgba(255, 255, 255, 0.6);
-  padding-block: calc(var(--space-lg) * 1.25);
+  background: #090e1a;
+  color: rgba(255, 255, 255, 0.45);
+  padding-block: calc(var(--space-lg) * 1.5);
   text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.01em;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  border-top: 1px solid rgba(255,255,255,.06);
 }
 
 .footer__inner {
@@ -960,7 +964,7 @@ h1, h2, h3, h4 {
   .navbar__nav {
     position: fixed;
     inset: var(--navbar-h) 0 0 0;
-    background: var(--clr-surface);
+    background: rgba(9, 14, 26, 0.98);
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--space-xl) var(--space-lg);
@@ -968,7 +972,7 @@ h1, h2, h3, h4 {
     transform: translateX(100%);
     transition: transform var(--transition);
     z-index: 99;
-    border-top: 1px solid var(--clr-border);
+    border-top: 1px solid rgba(255,255,255,.08);
     box-shadow: var(--shadow-lg);
   }
 
@@ -978,6 +982,7 @@ h1, h2, h3, h4 {
 
   .nav-link {
     font-size: 1.1rem;
+    color: rgba(255,255,255,.70);
   }
 
   /* Hamburguesa animada — estado abierto */
