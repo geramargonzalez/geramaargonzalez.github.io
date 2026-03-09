@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- =============================================
+       TÍTULO Y META DATOS — editar libremente
+       ============================================= -->
+  <title>Gerardo González | NetSuite · Data &amp; AI</title>
+  <meta name="description" content="Portfolio personal de Gerardo González — NetSuite Administrator, Developer, Data &amp; AI. Montevideo, Uruguay." />
+  <meta name="author" content="Gerardo González" />
+
+  <!-- Open Graph (miniatura cuando compartes el link) -->
+  <meta property="og:title" content="Gerardo González | Portfolio" />
+  <meta property="og:description" content="NetSuite Administrator | Developer | Data &amp; AI" />
+  <meta property="og:image" content="assets/profile.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       NAVBAR
+       ============================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <!-- Logo / Nombre corto -->
+      <a href="#hero" class="navbar__brand">GG</a>
+
+      <!-- Botón hamburguesa (mobile) -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Links de navegación -->
+      <nav class="navbar__nav" id="navMenu">
+        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+        <a href="#skills"   class="nav-link">Skills</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#experiencia" class="nav-link">Experiencia</a>
+        <a href="#educacion" class="nav-link">Educación</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =============================================
+         SECCIÓN 1 — HERO
+         ============================================= -->
+    <section class="hero" id="hero">
+      <div class="container hero__content">
+
+        <!-- Foto de perfil — reemplazar assets/profile.jpg con tu foto real -->
+        <div class="hero__photo-wrap">
+          <img
+            src="assets/profile.jpg"
+            alt="Foto de perfil de Gerardo González"
+            class="hero__photo"
+            onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';"
+          />
+          <!-- Placeholder SVG si no existe la imagen -->
+          <div class="hero__photo hero__photo--fallback" id="photo-fallback" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="38" r="22" fill="#94a3b8"/>
+              <ellipse cx="50" cy="85" rx="34" ry="22" fill="#94a3b8"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Texto principal -->
+        <div class="hero__text">
+          <!-- Badge académico destacado -->
+          <div class="hero__academic-badge">
+            <span class="badge-icon">🎓</span>
+            <span>Especialización en Ciencia de Datos e Inteligencia Artificial&nbsp;|&nbsp;<strong>UTEC + MIT</strong></span>
+          </div>
+
+          <!-- Nombre -->
+          <h1 class="hero__name">Gerardo González</h1>
+
+          <!-- Subtítulo profesional — editar a gusto -->
+          <p class="hero__title">NetSuite Administrator&nbsp;&nbsp;·&nbsp;&nbsp;Developer&nbsp;&nbsp;·&nbsp;&nbsp;Data &amp; AI</p>
+
+          <!-- Descripción breve -->
+          <p class="hero__desc">
+            Profesional con experiencia en NetSuite, automatización, integraciones,
+            análisis de datos e inteligencia artificial. Apasionado por construir
+            soluciones robustas que conecten sistemas, datos y personas.
+          </p>
+
+          <!-- Ubicación -->
+          <p class="hero__location">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Montevideo, Uruguay
+          </p>
+
+          <!-- Botones de acción -->
+          <div class="hero__actions">
+            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+            <!-- Reemplazar href con la ruta real a tu CV -->
+            <a href="assets/CV.pdf" download class="btn btn--outline">Descargar CV</a>
+            <a href="#contacto" class="btn btn--ghost">Contacto</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 2 — SOBRE MÍ
+         ============================================= -->
+    <section class="section about" id="sobre-mi">
+      <div class="container">
+        <h2 class="section__title">Sobre mí</h2>
+        <div class="about__grid">
+
+          <div class="about__body">
+            <!-- Párrafo principal — editar a gusto -->
+            <p>
+              Soy un profesional técnico con foco en <strong>NetSuite</strong>, desarrollo de integraciones
+              y análisis de datos. Mi trabajo se centra en optimizar procesos de negocio mediante
+              automatización, conectar sistemas a través de APIs y extraer valor de los datos para
+              apoyar la toma de decisiones.
+            </p>
+            <p>
+              Con experiencia en entornos corporativos dinámicos, combino habilidades de desarrollo
+              (<strong>SuiteScript, JavaScript, Python</strong>) con una visión analítica orientada a resultados.
+              Me interesa especialmente el cruce entre ingeniería de software, datos e inteligencia
+              artificial aplicada a problemas reales.
+            </p>
+            <p>
+              Actualmente curso la <strong>Especialización en Ciencia de Datos e Inteligencia Artificial</strong>
+              en la <strong>Universidad Tecnológica del Uruguay (UTEC)</strong>, en colaboración con el
+              <strong>Massachusetts Institute of Technology (MIT)</strong>, profundizando mis conocimientos
+              en machine learning, análisis estadístico y modelos de IA.
+            </p>
+          </div>
+
+          <!-- Tarjeta de destaque académico -->
+          <div class="about__academic-card">
+            <div class="academic-card">
+              <div class="academic-card__icon">🎓</div>
+              <h3 class="academic-card__title">Formación en curso</h3>
+              <p class="academic-card__prog">Especialización en Ciencia de Datos e Inteligencia Artificial</p>
+              <div class="academic-card__inst">
+                <span class="inst-badge inst-badge--utec">UTEC</span>
+                <span class="inst-badge inst-badge--mit">MIT</span>
+              </div>
+              <p class="academic-card__sub">Universidad Tecnológica del Uruguay<br/>en colaboración con el Massachusetts Institute of Technology</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 3 — SKILLS / STACK
+         ============================================= -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <h2 class="section__title">Skills &amp; Stack</h2>
+        <p class="section__subtitle">Tecnologías y herramientas con las que trabajo a diario</p>
+
+        <!-- Grupos de skills — añadir o quitar tags según necesidad -->
+        <div class="skills__groups">
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">ERP &amp; NetSuite</h3>
+            <div class="tags">
+              <span class="tag">NetSuite</span>
+              <span class="tag">SuiteScript 2.x</span>
+              <span class="tag">SuiteFlow</span>
+              <span class="tag">SuiteTalk (SOAP/REST)</span>
+              <span class="tag">NetSuite Administration</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Desarrollo</h3>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">SQL</span>
+              <span class="tag">HTML / CSS</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Data &amp; AI</h3>
+            <div class="tags">
+              <span class="tag tag--accent">Machine Learning</span>
+              <span class="tag tag--accent">Inteligencia Artificial</span>
+              <span class="tag tag--accent">Análisis de Datos</span>
+              <span class="tag tag--accent">Python (Pandas, NumPy)</span>
+              <span class="tag tag--accent">SQL Analytics</span>
+            </div>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Integraciones &amp; Herramientas</h3>
+            <div class="tags">
+              <span class="tag">Integrations</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Git / GitHub</span>
+              <span class="tag">Postman</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 4 — PROYECTOS DESTACADOS
+         ============================================= -->
+    <section class="section projects" id="proyectos">
+      <div class="container">
+        <h2 class="section__title">Proyectos destacados</h2>
+        <p class="section__subtitle">Selección de proyectos personales y profesionales</p>
+
+        <div class="projects__grid">
+
+          <!-- ── PROYECTO 1 — editar título, descripción, tecnologías y links ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">NetSuite Integration Hub</h3>
+              <p class="project-card__desc">
+                Plataforma de integración modular para conectar NetSuite con sistemas externos
+                (e-commerce, logística, CRM) mediante APIs REST. Gestión de errores, reintentos
+                y monitoreo en tiempo real.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Node.js</span>
+                <span class="tag tag--sm">SuiteScript</span>
+                <span class="tag tag--sm">REST API</span>
+                <span class="tag tag--sm">NetSuite</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <!-- Reemplazar # con la URL real del repositorio -->
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+              <!-- Eliminar el botón si no hay demo -->
+              <a href="#" class="btn btn--sm btn--ghost" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </article>
+
+          <!-- ── PROYECTO 2 ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">Sales Dashboard Analytics</h3>
+              <p class="project-card__desc">
+                Dashboard interactivo para análisis de ventas con visualización de KPIs,
+                tendencias y forecasting basado en datos exportados de NetSuite.
+                Construido con Python y visualizaciones dinámicas.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Python</span>
+                <span class="tag tag--sm">Pandas</span>
+                <span class="tag tag--sm">SQL</span>
+                <span class="tag tag--sm">Data Analysis</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" class="btn btn--sm btn--ghost" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </article>
+
+          <!-- ── PROYECTO 3 ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">AutoFlow — Process Automation</h3>
+              <p class="project-card__desc">
+                Motor de automatización de procesos internos que reduce intervención manual
+                en flujos contables y de aprobación dentro de NetSuite, usando SuiteFlow
+                y scripts personalizados.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">SuiteScript 2.x</span>
+                <span class="tag tag--sm">SuiteFlow</span>
+                <span class="tag tag--sm">Automation</span>
+                <span class="tag tag--sm">JavaScript</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <!-- ── PROYECTO 4 ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">ML Classifier — Transacciones</h3>
+              <p class="project-card__desc">
+                Modelo de clasificación supervisada para categorizar transacciones
+                financieras usando scikit-learn. Incluye pipeline de preprocesamiento,
+                validación cruzada y reporte de métricas.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm tag--accent">Python</span>
+                <span class="tag tag--sm tag--accent">scikit-learn</span>
+                <span class="tag tag--sm tag--accent">Machine Learning</span>
+                <span class="tag tag--sm tag--accent">AI</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" class="btn btn--sm btn--ghost" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </article>
+
+          <!-- ── PROYECTO 5 ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">API Gateway — ERP Connector</h3>
+              <p class="project-card__desc">
+                Microservicio que actúa como gateway entre NetSuite y aplicaciones cliente,
+                gestionando autenticación OAuth, transformación de payloads y logging
+                de transacciones.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Node.js</span>
+                <span class="tag tag--sm">OAuth 2.0</span>
+                <span class="tag tag--sm">REST API</span>
+                <span class="tag tag--sm">Integrations</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <!-- ── PROYECTO 6 ── -->
+          <article class="project-card">
+            <div class="project-card__body">
+              <h3 class="project-card__title">Data Pipeline — ETL NetSuite</h3>
+              <p class="project-card__desc">
+                Pipeline ETL para extraer datos de NetSuite, transformarlos y cargarlos
+                en un data warehouse. Permite análisis avanzado y reportes fuera del
+                entorno ERP.
+              </p>
+              <div class="project-card__tags">
+                <span class="tag tag--sm">Python</span>
+                <span class="tag tag--sm">SQL</span>
+                <span class="tag tag--sm">ETL</span>
+                <span class="tag tag--sm">Data Engineering</span>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 5 — EXPERIENCIA
+         ============================================= -->
+    <section class="section experience" id="experiencia">
+      <div class="container">
+        <h2 class="section__title">Experiencia</h2>
+
+        <div class="timeline">
+
+          <!-- ── ITEM 1 — más reciente primero ── -->
+          <div class="timeline__item">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <!-- Editar puesto, empresa y período -->
+                <h3 class="timeline__role">NetSuite Administrator &amp; Developer</h3>
+                <span class="timeline__period">2022 — Presente</span>
+              </div>
+              <p class="timeline__company">Empresa Actual &nbsp;·&nbsp; Montevideo, Uruguay</p>
+              <p class="timeline__desc">
+                Administración integral de NetSuite: customización de formularios, roles,
+                flujos de trabajo y dashboards. Desarrollo de scripts en SuiteScript 2.x
+                para automatización de procesos contables y logísticos. Implementación
+                de integraciones con plataformas externas vía API REST.
+              </p>
+            </div>
+          </div>
+
+          <!-- ── ITEM 2 ── -->
+          <div class="timeline__item">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="timeline__role">Analista de Sistemas / Desarrollador</h3>
+                <span class="timeline__period">2019 — 2022</span>
+              </div>
+              <p class="timeline__company">Empresa Anterior &nbsp;·&nbsp; Montevideo, Uruguay</p>
+              <p class="timeline__desc">
+                Desarrollo y mantenimiento de integraciones entre sistemas ERP y
+                plataformas de e-commerce. Análisis de requerimientos, documentación
+                técnica y soporte a usuarios de negocio.
+              </p>
+            </div>
+          </div>
+
+          <!-- ── ITEM 3 ── -->
+          <div class="timeline__item">
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <div class="timeline__header">
+                <h3 class="timeline__role">Desarrollador Junior</h3>
+                <span class="timeline__period">2017 — 2019</span>
+              </div>
+              <p class="timeline__company">Empresa Inicial &nbsp;·&nbsp; Montevideo, Uruguay</p>
+              <p class="timeline__desc">
+                Desarrollo de aplicaciones web, mantenimiento de bases de datos SQL
+                y colaboración en proyectos de automatización de reportes.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 6 — EDUCACIÓN / FORMACIÓN
+         ============================================= -->
+    <section class="section education" id="educacion">
+      <div class="container">
+        <h2 class="section__title">Educación &amp; Certificaciones</h2>
+
+        <div class="education__grid">
+
+          <!-- ── DESTACADO: Especialización UTEC + MIT ── -->
+          <div class="edu-card edu-card--featured">
+            <div class="edu-card__badge-row">
+              <span class="inst-badge inst-badge--utec">UTEC</span>
+              <span class="inst-badge inst-badge--mit">MIT</span>
+            </div>
+            <h3 class="edu-card__title">Especialización en Ciencia de Datos e Inteligencia Artificial</h3>
+            <p class="edu-card__inst">Universidad Tecnológica del Uruguay (UTEC)</p>
+            <p class="edu-card__detail">En colaboración con el Massachusetts Institute of Technology (MIT)</p>
+            <!-- Editar período -->
+            <p class="edu-card__period">2024 — En curso</p>
+          </div>
+
+          <!-- ── Formación técnica / universitaria ── -->
+          <div class="edu-card">
+            <h3 class="edu-card__title">Licenciatura / Tecnicatura en Sistemas</h3>
+            <!-- Editar institución y período -->
+            <p class="edu-card__inst">Universidad / Instituto Técnico</p>
+            <p class="edu-card__period">XXXX — XXXX</p>
+          </div>
+
+          <!-- ── Certificación 1 ── -->
+          <div class="edu-card">
+            <h3 class="edu-card__title">NetSuite SuiteFoundation Certification</h3>
+            <p class="edu-card__inst">Oracle NetSuite</p>
+            <p class="edu-card__period">20XX</p>
+          </div>
+
+          <!-- ── Certificación 2 (placeholder) ── -->
+          <div class="edu-card edu-card--placeholder">
+            <h3 class="edu-card__title">Próxima certificación</h3>
+            <p class="edu-card__inst">Agregar aquí</p>
+            <p class="edu-card__period">—</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 7 — CONTACTO
+         ============================================= -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <h2 class="section__title">Contacto</h2>
+        <p class="section__subtitle">¿Tenés un proyecto, propuesta o consulta? <br/>Estoy disponible para conversar.</p>
+
+        <div class="contact__grid">
+
+          <!-- Email — reemplazar con tu email real -->
+          <a href="mailto:tuemail@ejemplo.com" class="contact-card">
+            <div class="contact-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </div>
+            <span class="contact-card__label">Email</span>
+            <span class="contact-card__value">tuemail@ejemplo.com</span>
+          </a>
+
+          <!-- LinkedIn — reemplazar # con tu URL de LinkedIn -->
+          <a href="https://linkedin.com/in/tu-perfil" class="contact-card" target="_blank" rel="noopener">
+            <div class="contact-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <span class="contact-card__label">LinkedIn</span>
+            <span class="contact-card__value">linkedin.com/in/tu-perfil</span>
+          </a>
+
+          <!-- GitHub — reemplazar # con tu URL de GitHub -->
+          <a href="https://github.com/geramargonzalez" class="contact-card" target="_blank" rel="noopener">
+            <div class="contact-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <span class="contact-card__label">GitHub</span>
+            <span class="contact-card__value">github.com/geramargonzalez</span>
+          </a>
+
+        </div>
+
+        <!-- CTA final -->
+        <div class="contact__cta">
+          <a href="mailto:tuemail@ejemplo.com" class="btn btn--primary btn--lg">Escribirme un mensaje</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Gerardo González &mdash; Montevideo, Uruguay</p>
+      <p class="footer__tagline">NetSuite · Data &amp; AI · Especialización UTEC + MIT</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
