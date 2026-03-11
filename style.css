@@ -1062,6 +1062,77 @@ h1, h2, h3, h4 {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   WIP POPUP
+   ───────────────────────────────────────────────────────────── */
+.wip-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 30, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.wip-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wip-popup {
+  background: var(--clr-surface);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  border-top: 4px solid var(--clr-accent);
+}
+
+.wip-popup__icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.wip-popup__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin: 0 0 0.75rem;
+}
+
+.wip-popup__body {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.wip-popup__btn {
+  display: inline-block;
+  background: var(--clr-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.wip-popup__btn:hover {
+  background: var(--clr-accent-h);
+}
+
+/* ─────────────────────────────────────────────────────────────
    12. CONTACTO
    ───────────────────────────────────────────────────────────── */
 .contact {

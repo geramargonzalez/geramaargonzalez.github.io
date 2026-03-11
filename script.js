@@ -10,6 +10,23 @@
  * 6. Cambio de idioma ES ↔ EN
  */
 
+/* ─── 0. WIP POPUP ─────────────────────────────────────────── */
+(function wipPopup() {
+  var overlay = document.getElementById('wipOverlay');
+  var btn     = document.getElementById('wipClose');
+  if (!overlay || !btn) return;
+
+  btn.addEventListener('click', function () {
+    overlay.classList.add('hidden');
+    setTimeout(function () { overlay.style.display = 'none'; }, 300);
+  });
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) btn.click();
+  });
+})();
+
+
 /* ─── 1. AÑO DINÁMICO ──────────────────────────────────────── */
 (function setYear() {
   var el = document.getElementById('year');
