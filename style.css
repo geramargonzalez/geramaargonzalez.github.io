@@ -839,7 +839,97 @@ h1, h2, h3, h4 {
 
 
 /* ─────────────────────────────────────────────────────────────
-   11. CONTACTO
+   11. RECOMENDACIONES
+   ───────────────────────────────────────────────────────────── */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  gap: var(--space-lg);
+}
+
+.testimonial-card:hover {
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-4px);
+  border-color: var(--clr-accent);
+}
+
+.testimonial-card--placeholder {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.testimonial-card__quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.testimonial-card__icon {
+  color: var(--clr-accent);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.testimonial-card__text {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--clr-text);
+  font-style: italic;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  border-top: 1px solid var(--clr-border);
+  padding-top: var(--space-md);
+}
+
+.testimonial-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--clr-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.testimonial-card__name {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--clr-primary);
+  margin: 0;
+}
+
+.testimonial-card__role {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+  margin: 0;
+  margin-top: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   12. CONTACTO
    ───────────────────────────────────────────────────────────── */
 .contact {
   text-align: center;
