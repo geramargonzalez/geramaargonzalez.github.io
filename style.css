@@ -841,6 +841,14 @@ h1, h2, h3, h4 {
 /* ─────────────────────────────────────────────────────────────
    11. RECOMENDACIONES
    ───────────────────────────────────────────────────────────── */
+.section-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--clr-accent), transparent);
+  margin: 0;
+  opacity: 0.35;
+}
+
 .testimonials {
   background: var(--clr-bg);
 }
