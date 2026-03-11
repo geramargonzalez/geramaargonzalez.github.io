@@ -841,6 +841,10 @@ h1, h2, h3, h4 {
 /* ─────────────────────────────────────────────────────────────
    11. RECOMENDACIONES
    ───────────────────────────────────────────────────────────── */
+.testimonials {
+  background: var(--clr-bg);
+}
+
 .testimonials__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
