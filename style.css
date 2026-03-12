@@ -317,15 +317,24 @@ h1, h2, h3, h4 {
 }
 
 .navbar__brand {
+  display: flex;
+  align-items: center;
   font-size: 1.1rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
-  transition: color var(--transition);
+  transition: opacity var(--transition);
 }
-.navbar__brand:hover { color: var(--clr-accent); }
+.navbar__brand:hover { opacity: 0.8; }
+
+.navbar__logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 
 .navbar__nav {
   display: flex;
