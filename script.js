@@ -221,3 +221,142 @@
     });
   });
 })();
+
+
+/* ─── 8. ARTICLES — RENDER + FILTER ────────────────────────── */
+(function articlesSection() {
+  var grid        = document.getElementById('articlesGrid');
+  var filterWrap  = document.getElementById('articlesFilters');
+  if (!grid || typeof ARTICLES_DATA === 'undefined') return;
+
+  var MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  var MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function formatDate(iso) {
+    if (!iso) return '';
+    var parts = iso.split('-');
+    if (parts.length < 3) return iso;
+    var y = parseInt(parts[0], 10);
+    var m = parseInt(parts[1], 10) - 1;
+    var d = parseInt(parts[2], 10);
+    var lang = document.documentElement.getAttribute('data-lang') || 'es';
+    var months = lang === 'en' ? MONTHS_EN : MONTHS_ES;
+    return d + ' ' + months[m] + ' ' + y;
+  }
+
+  var CATEGORY_LABELS = {
+    'data-science': { es: '📊 Data Science', en: '📊 Data Science' },
+    'netsuite':     { es: '⚙️ NetSuite',     en: '⚙️ NetSuite'     },
+    'ia':           { es: '🤖 IA',           en: '🤖 AI'            },
+    'general':      { es: '💡 General',      en: '💡 General'       }
+  };
+
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function t(obj) {
+    var lang = document.documentElement.getAttribute('data-lang') || 'es';
+    if (!obj) return '';
+    return obj[lang] || obj.es || '';
+  }
+
+  function renderCards() {
+    grid.innerHTML = '';
+
+    // Sort by date descending
+    var sorted = ARTICLES_DATA.slice().sort(function (a, b) {
+      return (b.date || '').localeCompare(a.date || '');
+    });
+
+    if (!sorted.length) {
+      grid.innerHTML = '<p class="articles__empty">No hay artículos publicados aún.</p>';
+      return;
+    }
+
+    sorted.forEach(function (article) {
+      var catKey   = article.category || 'general';
+      var catLabel = (CATEGORY_LABELS[catKey] && t(CATEGORY_LABELS[catKey])) || catKey;
+      var summary  = t(article.summary);
+      var title    = t(article.title);
+      var tags     = (article.tags || []).slice(0, 4);
+      var dest     = article.externalLink
+        ? article.externalLink
+        : 'article.html?id=' + encodeURIComponent(article.id);
+      var isExt    = !!article.externalLink;
+
+      var coverHtml = article.cover
+        ? '<img src="' + escHtml(article.cover) + '" alt="" class="article-card__cover" loading="lazy" />'
+        : '<div class="article-card__cover-stripe article-card__cover-stripe--' + escHtml(catKey) + '"></div>';
+
+      var tagsHtml = tags.map(function (tag) {
+        return '<span class="tag tag--sm">' + escHtml(tag) + '</span>';
+      }).join('');
+
+      var readLabel = document.documentElement.getAttribute('data-lang') === 'en' ? 'Read →' : 'Leer →';
+
+      var card = document.createElement('article');
+      card.className = 'article-card';
+      card.dataset.category = catKey;
+      card.innerHTML =
+        coverHtml +
+        '<div class="article-card__body">' +
+          '<div class="article-card__meta">' +
+            '<span class="article-card__category article-card__category--' + escHtml(catKey) + '">' + catLabel + '</span>' +
+            '<time class="article-card__date">' + escHtml(formatDate(article.date)) + '</time>' +
+          '</div>' +
+          '<h3 class="article-card__title">' + escHtml(title) + '</h3>' +
+          (article.readingTime ? '<span class="article-card__reading-time">⏱ ' + escHtml(article.readingTime) + '</span>' : '') +
+          '<p class="article-card__summary">' + escHtml(summary) + '</p>' +
+          '<div class="article-card__footer">' +
+            '<div class="tags">' + tagsHtml + '</div>' +
+            '<a href="' + escHtml(dest) + '"' +
+              (isExt ? ' target="_blank" rel="noopener noreferrer"' : '') +
+              ' class="btn btn--sm btn--ghost">' + readLabel +
+            '</a>' +
+          '</div>' +
+        '</div>';
+
+      grid.appendChild(card);
+    });
+  }
+
+  renderCards();
+
+  // Filter buttons
+  if (filterWrap) {
+    filterWrap.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      var filter = btn.dataset.filter;
+
+      filterWrap.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.remove('filter-btn--active');
+      });
+      btn.classList.add('filter-btn--active');
+
+      grid.querySelectorAll('.article-card').forEach(function (card) {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.removeAttribute('hidden');
+        } else {
+          card.setAttribute('hidden', '');
+        }
+      });
+    });
+  }
+
+  // Re-render when language changes (to update labels / dates)
+  document.documentElement.addEventListener('langchange', renderCards);
+  // Patch langToggle to dispatch event
+  var langBtn = document.getElementById('langToggle');
+  if (langBtn) {
+    langBtn.addEventListener('click', function () {
+      setTimeout(renderCards, 0);
+    });
+  }
+})();

@@ -945,6 +945,195 @@ h1, h2, h3, h4 {
 
 
 /* ─────────────────────────────────────────────────────────────
+   9b. ARTÍCULOS DE INTERÉS
+   ───────────────────────────────────────────────────────────── */
+.articles {
+  background: var(--clr-bg);
+}
+
+.articles__filters {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-lg);
+}
+
+.articles__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* ── Article card ── */
+.article-card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-top: 3px solid transparent;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow var(--transition), transform var(--transition), border-top-color var(--transition);
+}
+
+.article-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-top-color: var(--clr-accent);
+}
+
+.article-card[data-category="netsuite"]:hover { border-top-color: #0d9488; }
+.article-card[data-category="ia"]:hover        { border-top-color: #d97706; }
+
+.article-card__cover {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.article-card:hover .article-card__cover {
+  transform: scale(1.03);
+}
+
+/* Thin color bar when no cover image */
+.article-card__cover-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--clr-accent), var(--clr-primary));
+}
+
+.article-card__cover-stripe--netsuite { background: linear-gradient(90deg, #0d9488, #064e3b); }
+.article-card__cover-stripe--ia        { background: linear-gradient(90deg, #d97706, #92400e); }
+.article-card__cover-stripe--general   { background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-h)); }
+
+.article-card__body {
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-sm);
+}
+
+/* Category badge — reusing project-card__category sizes, new colors */
+.article-card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.article-card__category--data-science {
+  background: var(--clr-accent-lt);
+  color: var(--clr-accent);
+}
+
+.article-card__category--netsuite {
+  background: #ccfbf1;
+  color: #0d9488;
+}
+
+.article-card__category--ia {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.article-card__category--general {
+  background: var(--clr-primary-lt);
+  color: var(--clr-primary);
+}
+
+.article-card__date {
+  font-size: 0.8rem;
+  color: var(--clr-text-light);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.article-card__title {
+  font-size: 1rem;
+  color: var(--clr-primary);
+  line-height: 1.35;
+  margin-bottom: var(--space-sm);
+}
+
+.article-card__summary {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.article-card__reading-time {
+  font-size: 0.78rem;
+  color: var(--clr-text-light);
+  margin-bottom: var(--space-sm);
+}
+
+.article-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--clr-border);
+  margin-top: auto;
+}
+
+/* ── Article detail page ── */
+.article-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.article-detail__reading {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,.75);
+  font-weight: 500;
+}
+
+.article-detail__body {
+  max-width: 740px;
+  margin-inline: auto;
+  padding-block: var(--space-xl);
+}
+
+.article-detail__ext-link {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--clr-border);
+}
+
+/* ── Empty state ── */
+.articles__empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--clr-text-light);
+  font-size: 0.95rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
    9. EXPERIENCIA — TIMELINE
    ───────────────────────────────────────────────────────────── */
 .timeline {
@@ -1719,6 +1908,39 @@ h1, h2, h3, h4 {
   font-size: 0.85rem;
   color: rgba(255,255,255,.55);
   margin-top: 0.2rem;
+}
+
+/* Mode tab bar */
+.admin-form-hidden { display: none; }
+
+.admin-mode-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid rgba(255,255,255,.15);
+  margin-top: var(--space-md);
+}
+
+.admin-mode-tab {
+  padding: 0.55rem 1.4rem;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.50);
+  transition: color var(--transition), border-color var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.admin-mode-tab:hover {
+  color: rgba(255,255,255,.85);
+}
+
+.admin-mode-tab--active {
+  color: #fff;
+  border-bottom-color: var(--clr-accent);
 }
 
 .admin-layout {

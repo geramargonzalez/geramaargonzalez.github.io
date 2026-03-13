@@ -23,10 +23,17 @@
   <div class="admin-header">
     <div class="container admin-header__inner">
       <div>
-        <h1>Nuevo Proyecto</h1>
-        <p class="admin-header__sub">Completá el formulario y copiá el código generado en <code>projects-data.js</code></p>
+        <h1 id="adminHeaderTitle">Nuevo Proyecto</h1>
+        <p class="admin-header__sub" id="adminHeaderSub">Completá el formulario y copiá el código generado en <code>projects-data.js</code></p>
       </div>
       <button class="btn btn--sm btn--primary" id="btnGenerate">⚡ Generar código</button>
+    </div>
+    <!-- Mode tabs -->
+    <div class="container">
+      <div class="admin-mode-tabs" id="adminModeTabs">
+        <button class="admin-mode-tab admin-mode-tab--active" data-mode="project">📁 Proyecto</button>
+        <button class="admin-mode-tab" data-mode="article">📰 Artículo</button>
+      </div>
     </div>
   </div>
 
@@ -35,6 +42,9 @@
 
     <!-- ════════════════ COLUMNA IZQUIERDA — FORMULARIO ════════════════ -->
     <div id="formCol">
+
+      <!-- ════ MODO PROYECTO ════ -->
+      <div id="projectForm">
 
       <!-- ── 1. Información básica ── -->
       <div class="admin-panel">
@@ -142,6 +152,100 @@
         </button>
       </div>
 
+      </div><!-- /projectForm -->
+
+      <!-- ════ MODO ARTÍCULO ════ -->
+      <div id="articleForm" class="admin-form-hidden">
+
+        <!-- A1. Información básica -->
+        <div class="admin-panel">
+          <h2 class="admin-panel__title">📋 Información básica</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="aId">ID <span>(slug único, sin espacios)</span></label>
+              <input class="form-input" id="aId" type="text" placeholder="mi-articulo-2026" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="aDate">Fecha</label>
+              <input class="form-input" id="aDate" type="date" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aCategory">Categoría</label>
+            <select class="form-select" id="aCategory">
+              <option value="data-science">📊 Data Science</option>
+              <option value="netsuite">⚙️ NetSuite</option>
+              <option value="ia">🤖 IA</option>
+              <option value="general">💡 General</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="aCover">Imagen de portada <span>(ruta — dejar vacío para barra de color)</span></label>
+            <input class="form-input" id="aCover" type="text" placeholder="assets/cover.jpg" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="aReadingTime">Tiempo de lectura <span>(opcional)</span></label>
+              <input class="form-input" id="aReadingTime" type="text" placeholder="5 min" maxlength="10" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="aExternalLink">Link externo <span>(fuente original)</span></label>
+              <input class="form-input" id="aExternalLink" type="url" placeholder="https://medium.com/…" />
+            </div>
+          </div>
+        </div>
+
+        <!-- A2. Título y resumen -->
+        <div class="admin-panel">
+          <h2 class="admin-panel__title">✏️ Título y resumen</h2>
+
+          <div class="form-group">
+            <label class="form-label" for="aTitleEs">Título (Español)</label>
+            <input class="form-input" id="aTitleEs" type="text" placeholder="Mi artículo en español" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aTitleEn">Título (English)</label>
+            <input class="form-input" id="aTitleEn" type="text" placeholder="My article in English" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aSummaryEs">Resumen (Español) <span>— aparece en la tarjeta</span></label>
+            <textarea class="form-textarea" id="aSummaryEs" rows="3" placeholder="Descripción breve en español…"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aSummaryEn">Resumen (English)</label>
+            <textarea class="form-textarea" id="aSummaryEn" rows="3" placeholder="Short description in English…"></textarea>
+          </div>
+        </div>
+
+        <!-- A3. Contenido / secciones -->
+        <div class="admin-panel">
+          <h2 class="admin-panel__title">📂 Contenido del artículo</h2>
+          <p class="admin-panel__hint">
+            Omitir si el artículo tiene un link externo. Si escribís el contenido acá, usá secciones con bloques de texto e imágenes.
+          </p>
+          <div class="sections-list" id="articleSectionsList"></div>
+          <button class="btn btn--sm btn--outline btn--add" id="btnAddArticleSection">
+            + Agregar sección
+          </button>
+        </div>
+
+        <!-- A4. Tags -->
+        <div class="admin-panel">
+          <h2 class="admin-panel__title">🏷️ Tags</h2>
+          <p class="admin-panel__hint">
+            Escribí un tag y presioná <kbd>Enter</kbd> o <kbd>,</kbd> para agregarlo.
+          </p>
+          <div class="tags-input-wrap" id="aTagsWrap">
+            <input class="tags-real-input" id="aTagsInput" type="text" placeholder="Python, EDA…" />
+          </div>
+        </div>
+
+      </div><!-- /articleForm -->
+
     </div><!-- /formCol -->
 
     <!-- ════════════════ COLUMNA DERECHA — OUTPUT ════════════════ -->
@@ -149,7 +253,7 @@
 
       <div class="admin-panel">
         <h2 class="admin-panel__title">⚡ Código generado</h2>
-        <p class="admin-panel__hint--sm">
+        <p class="admin-panel__hint--sm" id="outputHint">
           Copiá este bloque y pegalo al final del array en <code>projects-data.js</code> (antes del cierre <code>]</code>).
         </p>
 
@@ -165,11 +269,12 @@
       <div class="admin-panel">
         <h2 class="admin-panel__title">📖 Guía rápida</h2>
         <ol class="admin-guide-list">
+          <li>Elegí el modo: <strong>Proyecto</strong> o <strong>Artículo</strong></li>
           <li>Completá todos los campos del formulario</li>
-          <li>Agregá secciones con texto e imágenes (las imágenes van en <code>assets/</code>)</li>
+          <li>Agregá secciones con texto e imágenes (imágenes en <code>assets/</code>)</li>
           <li>Presioná <strong>Generar código</strong></li>
-          <li>Copiá el código y pegalo en <code>projects-data.js</code></li>
-          <li>En <code>index.html</code>, agregá una tarjeta apuntando al ID del proyecto</li>
+          <li>Copiá y pegalo en <code>projects-data.js</code> (proyectos) o <code>articles-data.js</code> (artículos)</li>
+          <li>Usá <strong>Vista previa</strong> para verificar antes de publicar</li>
         </ol>
       </div>
 
