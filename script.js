@@ -194,3 +194,30 @@
     applyLang(currentLang === 'es' ? 'en' : 'es');
   });
 })();
+
+
+/* ─── 7. PROJECT CATEGORY FILTER ───────────────────────────── */
+(function projectFilter() {
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.project-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var filter = this.dataset.filter;
+
+      // Update active button
+      filterBtns.forEach(function (b) { b.classList.remove('filter-btn--active'); });
+      this.classList.add('filter-btn--active');
+
+      // Show / hide cards
+      cards.forEach(function (card) {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.removeAttribute('hidden');
+        } else {
+          card.setAttribute('hidden', '');
+        }
+      });
+    });
+  });
+})();

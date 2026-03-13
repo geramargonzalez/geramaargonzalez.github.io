@@ -284,13 +284,21 @@
         <h2 class="section__title" data-es="Proyectos destacados" data-en="Featured Projects">Proyectos destacados</h2>
         <p class="section__subtitle" data-es="Selección de proyectos personales y profesionales" data-en="A selection of personal and professional projects">Selección de proyectos personales y profesionales</p>
 
+        <div class="projects__filters" role="group" aria-label="Filtrar proyectos">
+          <button class="filter-btn filter-btn--active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
+          <button class="filter-btn" data-filter="data-science">Data Science</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="software">Software</button>
+        </div>
+
         <div class="projects__grid">
 
           <!-- ── PROYECTO 1 — editar título, descripción, tecnologías y links ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="data-science">
             <img src="assets/mvd.jpg" alt="Mapa de Siniestros de Tránsito en Montevideo" class="project-card__cover">
             <div class="project-card__body">
               <h3 class="project-card__title">UTEC - Análisis de Siniestros de Tránsito (Montevideo 2022)</h3>
+              <div class="project-card__category project-card__category--data-science">📊 Data Science</div>
               <p class="project-card__desc" data-es="Análisis exploratorio de datos abiertos de la Intendencia de Montevideo (2022) sobre siniestros de tránsito. Mediante Python, Pandas, Matplotlib, Seaborn y Plotly identifiqué patrones por día, hora, tipo de vehículo y zona geográfica. Los miércoles y tardes concentran el mayor riesgo; los motociclistas representan el 58% de los siniestros urbanos. Proyecto de la materia Fundamentos de Programación para Ciencia de Datos (UTEC)." data-en="Exploratory data analysis of open data from the Municipality of Montevideo (2022) on traffic accidents. Using Python, Pandas, Matplotlib, Seaborn and Plotly, I identified patterns by day, time, vehicle type and geographic area. Wednesdays and afternoons concentrate the highest risk; motorcyclists account for 58% of urban accidents. Project for the Fundamentals of Programming for Data Science course (UTEC).">
                 Análisis exploratorio de datos abiertos de la Intendencia de Montevideo (2022)
                 sobre siniestros de tránsito. Mediante Python, Pandas, Matplotlib, Seaborn y
@@ -308,6 +316,7 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=siniestros-utec" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://github.com/geramargonzalez/UTEC-SiniestrosAnalisis" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
               <a href="https://colab.research.google.com/github/geramargonzalez/UTEC-SiniestrosAnalisis/blob/main/siniestrosAnalisis.ipynb" class="btn btn--sm btn--ghost" target="_blank" rel="noopener">Colab</a>
               <a href="https://raw.githubusercontent.com/geramargonzalez/UTEC-SiniestrosAnalisis/main/preprocesamiento.csv" class="btn btn--sm btn--ghost" download target="_blank" rel="noopener">Dataset</a>
@@ -315,10 +324,11 @@
           </article>
 
           <!-- ── PROYECTO 2 ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="data-science">
             <img src="assets/fielddetection.jpg" alt="Detección de campos en facturas con U-Net" class="project-card__cover">
             <div class="project-card__body">
               <h3 class="project-card__title" data-es="Detección de Campos en Facturas mediante Segmentación Semántica con U-Net" data-en="Invoice Field Detection via Semantic Segmentation with U-Net">Detección de Campos en Facturas mediante Segmentación Semántica con U-Net</h3>
+              <div class="project-card__category project-card__category--data-science">📊 Data Science</div>
               <p class="project-card__desc" data-es="Modelo de segmentación semántica basado en la arquitectura U-Net para detectar y localizar campos clave en imágenes de facturas (fecha, monto, proveedor, etc.). Incluye preprocesamiento de imágenes, entrenamiento del modelo y evaluación con métricas de segmentación. Proyecto de la especialización UTEC." data-en="Semantic segmentation model based on U-Net architecture to detect and locate key fields in invoice images (date, amount, vendor, etc.). Includes image preprocessing, model training and evaluation with segmentation metrics. UTEC specialization project.">
                 Modelo de segmentación semántica basado en la arquitectura U-Net para detectar
                 y localizar campos clave en imágenes de facturas (fecha, monto, proveedor, etc.).
@@ -333,16 +343,18 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=invoices-unet" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://github.com/geramargonzalez/invoicesUNETAnalisis" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
               <a href="https://colab.research.google.com/github/geramargonzalez/invoicesUNETAnalisis/blob/main/invoice_field_detection.ipynb" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Colab</a>
             </div>
           </article>
 
           <!-- ── PROYECTO 3 ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="data-science">
             <img src="assets/job.png" alt="Posting Job on Upwork — Automatización con IA" class="project-card__cover">
             <div class="project-card__body">
               <h3 class="project-card__title" data-es="Posting Job on Upwork — Automatización con IA" data-en="Posting Job on Upwork — AI Automation">Posting Job on Upwork — Automatización con IA</h3>
+              <div class="project-card__category project-card__category--data-science">📊 Data Science</div>
               <p class="project-card__desc" data-es="En el auge del mercado freelance global, muchos profesionales enfrentan dificultades para establecer tarifas competitivas. Este proyecto desarrolla modelos predictivos para estimar la tarifa horaria promedio (Hourly Rate) en base a habilidades, experiencia y factores del mercado, e identifica qué skills son más valorados por los clientes." data-en="In the boom of the global freelance market, many professionals struggle to set competitive rates. This project develops predictive models to estimate the average hourly rate based on skills, experience and market factors, and identifies which skills are most valued by clients.">
                 En el auge del mercado freelance global, muchos profesionales enfrentan dificultades
                 para establecer tarifas competitivas. Este proyecto desarrolla modelos predictivos para
@@ -358,14 +370,16 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=upwork-jobposting" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://github.com/geramargonzalez/Posting-Job-on-Upwork" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
           <!-- ── PROYECTO 4 ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="web">
             <div class="project-card__body">
               <h3 class="project-card__title" data-es="Broker Communication Software — Middleware de Mensajería" data-en="Broker Communication Software — Messaging Middleware">Broker Communication Software — Middleware de Mensajería</h3>
+              <div class="project-card__category project-card__category--web">🌐 Web</div>
               <p class="project-card__desc" data-es="Middleware Express (Node.js / TypeScript) que actúa como punto de integración entre proveedores y sistemas downstream. Recibe payloads de tipo &quot;solicitud&quot;, gestiona autenticación, usuarios y datos de perfil, y expone un dashboard operativo y páginas admin. El repositorio alberga dos superficies: un servidor Express legado en JavaScript con endpoints de integración y autenticación, y un servicio de perfiles en TypeScript con API RESTful documentada en Swagger / OpenAPI." data-en="Express-based middleware (Node.js / TypeScript) acting as the integration hub between providers and downstream systems. Receives &quot;solicitud&quot; payloads, handles authentication, users and profile data, and exposes an operations dashboard and admin pages. The repository hosts two surfaces: a legacy JavaScript Express server for provider integration and auth flows, and a TypeScript profile service exposing /api/v1/profile endpoints documented with Swagger / OpenAPI.">
                 Middleware Express (Node.js / TypeScript) que actúa como punto de integración
                 entre proveedores y sistemas downstream. Recibe payloads de tipo "solicitud",
@@ -385,14 +399,16 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=broker-communication" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://github.com/geramargonzalez/broker-communication-software" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
           <!-- ── PROYECTO 5 ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="software">
             <div class="project-card__body">
               <h3 class="project-card__title" data-es="Fintech CRM Customizations — SuiteCloud (SDF) para NetSuite" data-en="Fintech CRM Customizations — SuiteCloud (SDF) for NetSuite">Fintech CRM Customizations — SuiteCloud (SDF) para NetSuite</h3>
+              <div class="project-card__category project-card__category--software">⚙️ Software</div>
               <p class="project-card__desc" data-es="Proyecto SuiteCloud (SDF) desarrollado para una fintech uruguaya. Incluye scripts personalizados, objetos y configuraciones de NetSuite para la gestión integral de Leads, integraciones con servicios externos (Clearing, BCU y Web Landing) y mantenimiento de registros. Todo el ciclo de desarrollo sigue las prácticas de SuiteCloud Development Framework: bundles versionados, deployment a entornos sandbox y producción, y gestión de dependencias mediante manifest.xml." data-en="SuiteCloud (SDF) project developed for a Uruguayan fintech. Contains custom scripts, objects and NetSuite configurations for end-to-end Lead management, integrations with external services (Clearing, BCU and Web Landing), and record maintenance. The full development lifecycle follows SuiteCloud Development Framework best practices: versioned bundles, deployment to sandbox and production environments, and dependency management via manifest.xml.">
                 Proyecto SuiteCloud (SDF) desarrollado para una fintech uruguaya. Incluye
                 scripts personalizados, objetos y configuraciones de NetSuite para la gestión
@@ -411,15 +427,17 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=fintech-crm" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://github.com/geramargonzalez/FintechCRMCustomizations" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
           <!-- ── PROYECTO 6 ── -->
-          <article class="project-card">
+          <article class="project-card" data-category="software">
             <img src="assets/toba.png" alt="Toba — Videojuego educativo 2D" class="project-card__cover">
             <div class="project-card__body">
               <h3 class="project-card__title" data-es="Toba — Videojuego Educativo 2D" data-en="Toba — 2D Educational Video Game">Toba — Videojuego Educativo 2D</h3>
+              <div class="project-card__category project-card__category--software">⚙️ Software</div>
               <p class="project-card__desc" data-es="Videojuego 2D diseñado para niños de 9 a 12 años que combina entretenimiento con aprendizaje. Fomenta el cuidado del medio ambiente, la protección de los animales y el desarrollo de habilidades matemáticas. Pensado también como insumo didáctico para docentes. Ya cuenta con una primera versión beta publicada en Google Play Store con 8 niveles de juego." data-en="2D video game designed for children aged 9–12 that blends entertainment with learning. It promotes environmental awareness, animal protection and the development of math skills. Also intended as a teaching resource for educators. A first beta version with 8 game levels is already available on Google Play Store.">
                 Videojuego 2D diseñado para niños de 9 a 12 años que combina entretenimiento
                 con aprendizaje. Fomenta el cuidado del medio ambiente, la protección de los
@@ -436,6 +454,7 @@
               </div>
             </div>
             <div class="project-card__footer">
+              <a href="project.html?id=toba-videojuego" class="btn btn--sm btn--primary" data-es="Ver detalles →" data-en="View details →">Ver detalles →</a>
               <a href="https://play.google.com/store/apps/details?id=com.toba.game" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Play Store</a>
               <a href="https://github.com/geramargonzalez/Toba_scripts" class="btn btn--sm btn--outline" target="_blank" rel="noopener">GitHub</a>
             </div>

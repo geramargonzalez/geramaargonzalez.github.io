@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto | Gerardo González</title>
+  <meta name="description" content="Detalle de proyecto — Gerardo González" />
+  <meta name="author" content="Gerardo González" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       NAVBAR
+       ============================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__brand">
+        <img src="assets/logo.png" alt="GG Logo" class="navbar__logo" />
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navbar__nav" id="navMenu">
+        <a href="index.html#sobre-mi"      class="nav-link" data-es="Sobre mí"        data-en="About">Sobre mí</a>
+        <a href="index.html#skills"        class="nav-link">Skills</a>
+        <a href="index.html#proyectos"     class="nav-link" data-es="Proyectos"        data-en="Projects">Proyectos</a>
+        <a href="index.html#experiencia"   class="nav-link" data-es="Experiencia"      data-en="Experience">Experiencia</a>
+        <a href="index.html#educacion"     class="nav-link" data-es="Educación"        data-en="Education">Educación</a>
+        <a href="index.html#contacto"      class="nav-link" data-es="Contacto"         data-en="Contact">Contacto</a>
+      </nav>
+
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+    </div>
+  </header>
+
+  <!-- =============================================
+       CONTENIDO DEL PROYECTO (inyectado por project.js)
+       ============================================= -->
+  <main id="project-main">
+    <div class="project-loading-wrap">
+      <p id="project-loading" class="project-loading-text">Cargando proyecto…</p>
+    </div>
+  </main>
+
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Gerardo González &mdash; Montevideo, Uruguay</p>
+      <p class="footer__tagline"
+         data-es="NetSuite · Data &amp; AI · Especialización UTEC + MIT"
+         data-en="NetSuite · Data &amp; AI · UTEC + MIT Specialization">
+        NetSuite · Data &amp; AI · Especialización UTEC + MIT
+      </p>
+    </div>
+  </footer>
+
+  <script src="projects-data.js"></script>
+  <script src="project.js"></script>
+</body>
+</html>
